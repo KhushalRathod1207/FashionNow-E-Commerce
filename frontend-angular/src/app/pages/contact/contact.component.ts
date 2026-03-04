@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TitleComponent } from '../../components/title/title.component';
+import { NewsletterComponent } from '../../components/newsletter/newsletter.component';
+import { assets } from '../../models/assets';
+
+@Component({
+  selector: 'app-contact',
+  standalone: true,
+  imports: [CommonModule, TitleComponent, NewsletterComponent],
+  template: `
+    <div class='text-center text-2xl pt-10 border-t'>
+      <app-title text1="CONTACT" text2="US"></app-title>
+    </div>
+
+    <div class='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28'>
+      <img class='w-full md:max-w-[480px]' [src]="assets.contact_img" alt="Contact" />
+      <div class='flex flex-col justify-center items-start gap-6'>
+        <p class='font-semibold text-xl text-gray-600'>Our Store</p>
+        <p class='text-gray-500'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
+        <p class='text-gray-500'>Tel: (415) 555-0132 <br /> Email: admin&#64;fashionnow.com</p>
+        <p class='font-semibold text-xl text-gray-600'>Careers at FashionNow</p>
+        <p class='text-gray-500'>Learn more about our teams and job openings.</p>
+        <button class='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>
+          Explore Jobs
+        </button>
+      </div>
+    </div>
+
+    <app-newsletter></app-newsletter>
+  `,
+  styles: []
+})
+export class ContactComponent {
+  assets = assets;
+}

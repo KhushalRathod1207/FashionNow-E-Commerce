@@ -1,0 +1,20 @@
+export const assets = {
+  logo: '/assets/frontend_assets/logo.png',
+  hero_img: '/assets/frontend_assets/hero_img.png',
+  cart_icon: '/assets/frontend_assets/cart_icon.png',
+  bin_icon: '/assets/frontend_assets/bin_icon.png',
+  dropdown_icon: '/assets/frontend_assets/dropdown_icon.png',
+  exchange_icon: '/assets/frontend_assets/exchange_icon.png',
+  quality_icon: '/assets/frontend_assets/quality_icon.png',
+  search_icon: '/assets/frontend_assets/search_icon.png',
+  star_dull_icon: '/assets/frontend_assets/star_dull_icon.png',
+  star_icon: '/assets/frontend_assets/star_icon.png',
+  support_img: '/assets/frontend_assets/support_img.png',
+  menu_icon: '/assets/frontend_assets/menu_icon.png',
+  about_img: '/assets/frontend_assets/about_img.png',
+  contact_img: '/assets/frontend_assets/contact_img.png',
+  razorpay_logo: '/assets/frontend_assets/razorpay_logo.png',
+  stripe_logo: '/assets/frontend_assets/stripe_logo.png',
+  cross_icon: '/assets/frontend_assets/cross_icon.png',
+  profile_icon: '/assets/frontend_assets/profile_icon.png'
+};

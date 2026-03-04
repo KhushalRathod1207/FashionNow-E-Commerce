@@ -1,0 +1,48 @@
+<form (ngSubmit)="onSubmit($event)" class='flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800'>
+  <div class='inline-flex items-center gap-2 mb-2 mt-1'>
+    <p class='prata-regular text-3xl'>{{ currentState() }}</p>
+    <hr class='border-none h-[1.5px] w-8 bg-gray-800' />
+  </div>
+
+  @if (currentState() === 'Sign Up') {
+    <input 
+      [(ngModel)]="name" 
+      [ngModelOptions]="{standalone: true}"
+      class='w-full px-3 py-2 border border-gray-800' 
+      type="text" 
+      placeholder='Name' 
+      required 
+    />
+  }
+  
+  <input 
+    [(ngModel)]="email" 
+    [ngModelOptions]="{standalone: true}"
+    class='w-full px-3 py-2 border border-gray-800' 
+    type="email" 
+    placeholder='Email' 
+    required 
+  />
+  
+  <input 
+    [(ngModel)]="password" 
+    [ngModelOptions]="{standalone: true}"
+    class='w-full px-3 py-2 border border-gray-800' 
+    type="password" 
+    placeholder='Password' 
+    required 
+  />
+  
+  <div class='w-full flex justify-between text-sm mt-[-8px]'>
+    <p class='cursor-pointer'>Forget Password ?</p>
+    @if (currentState() === 'Login') {
+      <p (click)="toggleState()" class='cursor-pointer'>Create account</p>
+    } @else {
+      <p (click)="toggleState()" class='cursor-pointer'>Login Here</p>
+    }
+  </div>
+  
+  <button class='bg-black text-white font-light px-8 py-2 mt-4'>
+    {{ currentState() === 'Login' ? 'Sign In' : 'Sign Up' }}
+  </button>
+</form>

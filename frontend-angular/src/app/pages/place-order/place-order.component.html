@@ -1,0 +1,127 @@
+<form (ngSubmit)="onSubmit($event)" class='flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t'>
+  <!-- LEFT SIDE - Delivery Information -->
+  <div class='flex flex-col gap-4 w-full sm:max-w-[480px]'>
+    <div class='text-xl sm:text-2xl my-3'>
+      <app-title text1="DELIVERY" text2="INFORMATION"></app-title>
+    </div>
+    
+    <div class='flex gap-3'>
+      <input 
+        required 
+        [(ngModel)]="formData().firstName" 
+        name="firstName"
+        class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+        type="text" 
+        placeholder='First Name' 
+      />
+      <input 
+        required 
+        [(ngModel)]="formData().lastName" 
+        name="lastName"
+        class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+        type="text" 
+        placeholder='Last Name' 
+      />
+    </div>
+    
+    <input 
+      required 
+      [(ngModel)]="formData().email" 
+      name="email"
+      class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+      type="email" 
+      placeholder='Email' 
+    />
+    
+    <input 
+      required 
+      [(ngModel)]="formData().street" 
+      name="street"
+      class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+      type="text" 
+      placeholder='Street' 
+    />
+    
+    <div class='flex gap-3'>
+      <input 
+        required 
+        [(ngModel)]="formData().city" 
+        name="city"
+        class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+        type="text" 
+        placeholder='City' 
+      />
+      <input 
+        required 
+        [(ngModel)]="formData().state" 
+        name="state"
+        class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+        type="text" 
+        placeholder='State' 
+      />
+    </div>
+    
+    <div class='flex gap-3'>
+      <input 
+        required 
+        [(ngModel)]="formData().zipCode" 
+        name="zipCode"
+        class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+        type="text" 
+        placeholder='Zipcode' 
+      />
+      <input 
+        required 
+        [(ngModel)]="formData().country" 
+        name="country"
+        class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+        type="text" 
+        placeholder='Country' 
+      />
+    </div>
+    
+    <input 
+      required 
+      [(ngModel)]="formData().phone" 
+      name="phone"
+      class='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+      type="tel" 
+      placeholder='Phone' 
+    />
+  </div>
+
+  <!-- RIGHT SIDE - Cart Total & Payment -->
+  <div class='mt-8'>
+    <div class='mt-8 min-w-80'>
+      <app-cart-total></app-cart-total>
+    </div>
+
+    <div class='mt-12'>
+      <app-title text1="PAYMENT" text2="METHOD"></app-title>
+
+      <!-- Payment Methods -->
+      <div class='flex gap-3 flex-col lg:flex-row'>
+        <!-- <div (click)="method.set('stripe')" class='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
+          <p [class]="'min-w-3.5 h-3.5 border rounded-full ' + (method() === 'stripe' ? 'bg-green-400' : '')"></p>
+          <img class='h-5 mx-4' [src]="assets.stripe_logo" alt="stripe_logo" />
+        </div> -->
+
+        <div (click)="method.set('razorpay')" class='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
+          <p [class]="'min-w-3.5 h-3.5 border rounded-full ' + (method() === 'razorpay' ? 'bg-green-400' : '')"></p>
+          <img class='h-5 mx-4' [src]="assets.razorpay_logo" alt="razorpay_logo" />
+        </div>
+
+        <div (click)="method.set('cod')" class='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
+          <p [class]="'min-w-3.5 h-3.5 border rounded-full ' + (method() === 'cod' ? 'bg-green-400' : '')"></p>
+          <p class='text-gray-500 text-sm font-medium mx-4'>CASH ON DELIVERY</p>
+        </div>
+      </div>
+
+      <div class='w-full text-end mt-8'>
+        <button type='submit' class='bg-black text-white px-16 py-3 text-sm'>
+          PLACE ORDER
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

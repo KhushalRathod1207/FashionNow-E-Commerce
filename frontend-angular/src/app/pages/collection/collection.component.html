@@ -1,0 +1,64 @@
+<div class='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
+  <!-- Filter Option -->
+  <div class='min-w-60'>
+    <p (click)="showFilter.set(!showFilter())" class='my-2 text-xl flex items-center cursor-pointer gap-4'>
+      FILTER
+      <img [class]="'h-3 sm:hidden transition delay-75 ' + (showFilter() ? 'rotate-90' : '')" [src]="assets.dropdown_icon" alt="dropdown_icon" />
+    </p>
+    
+    <!-- Category Filter -->
+    <div [class]="'border border-gray-300 pl-5 py-3 mt-6 ' + (showFilter() ? '' : 'hidden') + ' sm:block'">
+      <p class='mb-3 text-sm font-medium'>CATEGORIES</p>
+      <div class='flex flex-col gap-2 text-sm font-light text-gray-700'>
+        <p class='flex gap-2'>
+          <input class='w-3' type="checkbox" value="Men" (change)="toggleCategory('Men', $any($event.target).checked)" /> Men  
+        </p>
+        <p class='flex gap-2'>
+          <input class='w-3' type="checkbox" value="Women" (change)="toggleCategory('Women', $any($event.target).checked)" /> Women
+        </p>
+        <p class='flex gap-2'>
+          <input class='w-3' type="checkbox" value="Kids" (change)="toggleCategory('Kids', $any($event.target).checked)" /> Kids
+        </p>
+      </div>  
+    </div>
+
+    <!-- Subcategory Filter -->
+    <div [class]="'border border-gray-300 pl-5 py-3 my-5 ' + (showFilter() ? '' : 'hidden') + ' sm:block'">
+      <p class='mb-3 text-sm font-medium'>TYPE</p>
+      <div class='flex flex-col gap-2 text-sm font-light text-gray-700'>
+        <p class='flex gap-2'>
+          <input class='w-3' type="checkbox" value="Topwear" (change)="toggleSubCategory('Topwear', $any($event.target).checked)" /> Topwear
+        </p>
+        <p class='flex gap-2'>
+          <input class='w-3' type="checkbox" value="Bottomwear" (change)="toggleSubCategory('Bottomwear', $any($event.target).checked)" /> Bottomwear
+        </p>
+        <p class='flex gap-2'>
+          <input class='w-3' type="checkbox" value="Winterwear" (change)="toggleSubCategory('Winterwear', $any($event.target).checked)" /> Winterwear
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class='flex-1'>
+    <div class='flex justify-between text-base sm:text-2xl mb-4'>
+      <app-title text1="ALL" text2="COLLECTIONS"></app-title>
+      <select [(ngModel)]="sortType" [ngModelOptions]="{standalone: true}" class='border-2 border-gray-300 text-sm px-2'>
+        <option value="relevent">Sort by: Relevent</option>
+        <option value="low-high">Sort by: Low to High</option>
+        <option value="high-low">Sort by: High to Low</option>
+      </select>
+    </div>
+    
+    <div class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+      @for (item of filterProducts(); track item._id) {
+        <app-product-item 
+          [id]="item._id" 
+          [image]="item.image" 
+          [name]="item.name" 
+          [price]="item.price">
+        </app-product-item>
+      }
+    </div>
+  </div>
+</div>
