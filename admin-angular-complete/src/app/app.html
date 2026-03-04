@@ -1,0 +1,14 @@
+<div class='bg-gray-50 min-h-screen'>
+  @if (adminService.token() === '') {
+    <app-login></app-login>
+  } @else {
+    <app-navbar></app-navbar>
+    <hr/>
+    <div class='flex w-full'>
+      <app-sidebar></app-sidebar>
+      <div class='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  }
+</div>
